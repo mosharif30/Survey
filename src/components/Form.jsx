@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Accept from "./Accept";
-import OtherInfo from "./OtherInfo";
-import PersonalInfo from "./PersonalInfo";
-import SignUpInfo from "./SignUpInfo";
+import OtherInfo from "./questions/OtherInfo";
+import PersonalInfo from "./questions/PersonalInfo";
+import SignUpInfo from "./questions/ClientInfo";
 import { useNavigate } from "react-router-dom";
 import CountDown from "./CountDown";
 import { useEffect } from "react";
 import CoundDownPart from "./CountDown";
+import Gender from "./questions/Gender";
 
 const Form = () => {
   useEffect(() => {
@@ -16,18 +17,26 @@ const Form = () => {
   let navigate = useNavigate();
 
   const [page, setPage] = useState(0);
-  const formTitles = ["signup info", "personal info", "other info", "accept"];
+  const formTitles = [
+    "signup info",
+    "gender",
+    "mother",
+    "other info",
+    "accept",
+  ];
   const pageDisplay = () => {
     if (page == 0) {
       return <SignUpInfo formData={formData} setFormData={setFormData} />;
     } else if (page == 1) {
+      return <Gender formData={formData} setFormData={setFormData}></Gender>;
+    } else if (page == 2) {
       return (
         <PersonalInfo
           formData={formData}
           setFormData={setFormData}
         ></PersonalInfo>
       );
-    } else if (page == 2) {
+    } else if (page == 3) {
       return (
         <OtherInfo formData={formData} setFormData={setFormData}></OtherInfo>
       );
@@ -36,9 +45,11 @@ const Form = () => {
     }
   };
   const [formData, setFormData] = useState({
-    userName: localStorage.getItem("username"),
+    userName: localStorage.getItem("userName"),
+    age: localStorage.getItem("age"),
+    gender: localStorage.getItem("gender"),
     lastName: localStorage.getItem("lastName"),
-    city: localStorage.getItem("city"),
+    otherInfo: localStorage.getItem("mother"),
   });
   let onTimesup = () => {
     localStorage.setItem("done", true);
@@ -52,7 +63,6 @@ const Form = () => {
     <>
       <div>
         <CoundDownPart></CoundDownPart>
-        
       </div>
       <div className="form">
         <div class="progress">
@@ -62,11 +72,13 @@ const Form = () => {
             style={{
               width:
                 page === 0
-                  ? "25%"
+                  ? "20%"
                   : page === 1
-                  ? "50%"
+                  ? "40%"
                   : page === 2
-                  ? "75%"
+                  ? "60%"
+                  : page === 3
+                  ? "80%"
                   : "100%",
             }}
             aria-valuemin="0"
@@ -96,6 +108,7 @@ const Form = () => {
               onClick={() => {
                 if (page === formTitles.length - 1) {
                   localStorage.setItem("done", true);
+                  localStorage.removeItem("end_date");
 
                   {
                     navigate("/formsend", {

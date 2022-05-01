@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 const Completionist = () => {
   let navigate = useNavigate();
   useEffect(() => {
+    localStorage.removeItem("end_date");
     navigate("/formsend", { replace: true, state: "bad" });
-  });
+  }, []);
 };
-const completed = () => {};
 // Renderer callback with condition
 const renderer = ({ hours, minutes, seconds, completed }) => {
   if (completed) {
@@ -30,9 +30,9 @@ const getLocalStorageValue = (s) => localStorage.getItem(s);
 
 const CoundDownPart = () => {
   const [data, setData] = useState(
-    { date: Date.now(), delay: 10000 } //10 seconds
+    { date: Date.now(), delay: 120000 } //10 seconds
   );
-  const wantedDelay = 10000; //10 ms
+  const wantedDelay = 120000; //10 ms
 
   //[START] componentDidMount
   //Code runs only one time after each reloading

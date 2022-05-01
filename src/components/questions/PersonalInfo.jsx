@@ -1,13 +1,13 @@
 const PersonalInfo = ({ formData, setFormData }) => {
     const handleChange = (event) => {
-      localStorage.setItem("lastName", event.target.value);
+      localStorage.setItem("mother", event.target.value);
       setFormData({ ...formData, lastName: event.target.value });
     };
   return (
     <>
       <input
-        placeholder="lastname"
-        value={formData.lastName}
+        placeholder="mother"
+        value={formData.mother}
         onChange={handleChange}
       ></input>
     </>

@@ -3,16 +3,20 @@ import { useLocation, useNavigate } from "react-router-dom";
 const FormSend = (state) => {
   let navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
   const loggedData = {
     userName: localStorage.getItem("userName"),
-    lastName: localStorage.getItem("lastName"),
-    city: localStorage.getItem("city"),
+    age: localStorage.getItem("age"),
+    gender: localStorage.getItem("gender"),
+    mother: localStorage.getItem("mother"),
+    otherData: localStorage.getItem("otherData"),
   };
   console.log(loggedData);
   localStorage.removeItem("userName");
-  localStorage.removeItem("lastName");
-  localStorage.removeItem("city");
+  localStorage.removeItem("age");
+  localStorage.removeItem("gender");
+
+  localStorage.removeItem("mother");
+  localStorage.removeItem("otherData");
   localStorage.setItem("done", false);
 
   return (
