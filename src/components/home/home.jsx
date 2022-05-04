@@ -2,7 +2,10 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./home.css";
+import { useSpring, animated, useTransition } from "react-spring";
+
 const Home = () => {
+ 
   let navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
@@ -10,6 +13,7 @@ const Home = () => {
   }, []);
   return (
     <>
+    
       <div className="container-fluid appContainer">
         <div className="row">
           <div className="col-xl-3 col-md-1 col-xs-0"></div>

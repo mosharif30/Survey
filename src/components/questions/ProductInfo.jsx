@@ -1,13 +1,17 @@
+import diet from "./pic/diet.png";
+import electronics from "./pic/electronics.png";
+import smartphone from "./pic/smartphone.png";
+import clothes from "./pic/clothes.png";
 
 const ProductInfo = ({ formData, setFormData }) => {
   const question = {
     text: "محصول  شما از چه دسته ای بود؟",
 
     options: [
-      { id: 0, text: "لباس" },
-      { id: 1, text: "مواد خوراکی" },
-      { id: 2, text: "لوازم الکترونیکی" },
-      { id: 2, text: "لوازم خانگی" },
+      { id: 0, text: "لباس", pic: clothes },
+      { id: 1, text: "مواد خوراکی", pic: diet },
+      { id: 2, text: "لوازم الکترونیکی", pic: smartphone },
+      { id: 2, text: "لوازم خانگی", pic: electronics },
     ],
   };
   const handleClick = (e) => {
@@ -17,23 +21,31 @@ const ProductInfo = ({ formData, setFormData }) => {
   return (
     <>
       <h1>{question.text}</h1>
-      <ul>
-        {question.options.map((option,i) => {
+      <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center">
+        {question.options.map((option, i) => {
           return (
-            <li key={i}
-              style={{
-                backgroundColor:
-                  localStorage.getItem("product") == option.text
-                    ? "red"
-                    : "white",
-              }}
-              onClick={handleClick}
-            >
-              {option.text}
-            </li>
+            <>
+              <div class="col">
+                <div
+                  class="card h-100"
+                  onClick={handleClick}
+                  style={{
+                    backgroundColor:
+                      localStorage.getItem("product") == option.text
+                        ? "#7f8c8d"
+                        : "white",
+                  }}
+                >
+                  <img src={option.pic} class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">{option.text}</h5>
+                  </div>
+                </div>
+              </div>
+            </>
           );
         })}
-      </ul>
+      </div>
     </>
   );
 };

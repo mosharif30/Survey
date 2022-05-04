@@ -9,9 +9,8 @@ import CoundDownPart from "../CountDown";
 import Gender from "../questions/Gender";
 import ProductInfo from "../questions/ProductInfo";
 import "./form.css";
-import { useSpring, animated, useTransition } from "react-spring";
 const Form = () => {
-  // const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
+  
   useEffect(() => {
     // localStorage.setItem("count", 120);
     localStorage.setItem("done", true);
@@ -103,7 +102,6 @@ const Form = () => {
                 <div className="header mt-2">
                   <h1>{formTitles[page]}</h1>
                 </div>
-                {/* <animated.div style={props}>I will fade in</animated.div> */}
                 <div className="body">{pageDisplay()}</div>
                 <div className="footer">
                   <button
@@ -140,6 +138,7 @@ const Form = () => {
                   >
                     {page === formTitles.length - 1 ? "ارسال" : "صفحه بعد"}
                   </button>
+                 
                 </div>
               </div>
             </div>
