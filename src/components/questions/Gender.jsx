@@ -1,14 +1,13 @@
 const Gender = ({ formData, setFormData }) => {
   const question = {
-    text: "what is Your Sex?",
+    text: "جنسیت خود را مشخص کنید:",
     options: [
-      { id: 0, text: "Male" },
-      { id: 1, text: "Female" },
-      { id: 2, text: "Others" },
+      { id: 0, text: "مرد" },
+      { id: 1, text: "زن" },
+      { id: 2, text: "سایر" },
     ],
   };
   const handleClick = (e) => {
-    console.log(e.target.innerText);
     localStorage.setItem("gender", e.target.innerText);
     setFormData({ ...formData, lastName: e.target.innerText });
   };
@@ -16,9 +15,9 @@ const Gender = ({ formData, setFormData }) => {
     <>
       <h1>{question.text}</h1>
       <ul>
-        {question.options.map((option) => {
+        {question.options.map((option,i) => {
           return (
-            <li
+            <li key={i}
               style={{
                 backgroundColor:
                   localStorage.getItem("gender") == option.text

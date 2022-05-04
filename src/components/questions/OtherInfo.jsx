@@ -5,11 +5,12 @@ const OtherInfo = ({ formData, setFormData }) => {
   };
   return (
     <>
-      <input
-        placeholder="otherData"
+      <textarea
+        className="w-100"
+        placeholder="نظرات خود را این جا وارد کنید "
         value={formData.otherData}
         onChange={handleChange}
-      ></input>
+      ></textarea>
     </>
   );
 };

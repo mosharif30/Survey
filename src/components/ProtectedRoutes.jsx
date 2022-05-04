@@ -6,7 +6,7 @@ import FormSend from "./Formsend";
 
 const hasDone = () => {
   const user = localStorage.getItem("done");
-  console.log(user);
+  
   if (user == "true") {
     return true;
   } else {

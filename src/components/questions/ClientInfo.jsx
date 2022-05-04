@@ -9,16 +9,20 @@ const ClientInfo = ({ formData, setFormData }) => {
   };
   return (
     <>
-      <input
-        placeholder="Enter Your  fullName"
-        value={formData.userName}
-        onChange={handleChangeName}
-      ></input>
-      <input
-        placeholder="Enter Your  Age"
-        value={formData.age}
-        onChange={handleChangeAge}
-      ></input>
+      <div className="row w-75 me-auto ms-auto">
+        <input
+          className="mt-4"
+          placeholder="نام و نام خانوادگی کامل خود را وارد کنید"
+          value={formData.userName}
+          onChange={handleChangeName}
+        ></input>
+        <input
+          className="mt-4"
+          placeholder="سن خود را وارد کنید"
+          value={formData.age}
+          onChange={handleChangeAge}
+        ></input>
+      </div>
     </>
   );
 };

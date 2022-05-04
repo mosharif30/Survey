@@ -1,5 +1,5 @@
 import "./App.css";
-import Form from "./components/Form";
+import Form from "./components/form/Form";
 import { Routes, Route, Navigate } from "react-router-dom";
 import FormSend from "./components/Formsend";
 import Home from "./components/home/home";
