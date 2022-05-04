@@ -1,7 +1,7 @@
 const OtherInfo = ({ formData, setFormData }) => {
-  const handleChange = (event) => {
+  const handleChangeData = (event) => {
     localStorage.setItem("otherData", event.target.value);
-    setFormData({ ...formData, city: event.target.value });
+    setFormData({ ...formData, otherData: event.target.value });
   };
   return (
     <>
@@ -9,7 +9,7 @@ const OtherInfo = ({ formData, setFormData }) => {
         className="w-100"
         placeholder="نظرات خود را این جا وارد کنید "
         value={formData.otherData}
-        onChange={handleChange}
+        onChange={handleChangeData}
       ></textarea>
     </>
   );

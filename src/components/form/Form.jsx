@@ -9,7 +9,9 @@ import CoundDownPart from "../CountDown";
 import Gender from "../questions/Gender";
 import ProductInfo from "../questions/ProductInfo";
 import "./form.css";
+import { useSpring, animated, useTransition } from "react-spring";
 const Form = () => {
+  // const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0 } });
   useEffect(() => {
     // localStorage.setItem("count", 120);
     localStorage.setItem("done", true);
@@ -50,6 +52,7 @@ const Form = () => {
     gender: localStorage.getItem("gender"),
     lastName: localStorage.getItem("lastName"),
     product: localStorage.getItem("product"),
+    otherData: localStorage.getItem("otherData"),
   });
   let onTimesup = () => {
     localStorage.setItem("done", true);
@@ -68,7 +71,7 @@ const Form = () => {
             {" "}
             <div
               type="button"
-              className="btn btn-primary position-relative mt-3 mb-2 me-2"
+              className="btn btn-warning position-relative mt-3 mb-2 me-2"
             >
               <CoundDownPart></CoundDownPart>
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -100,6 +103,7 @@ const Form = () => {
                 <div className="header mt-2">
                   <h1>{formTitles[page]}</h1>
                 </div>
+                {/* <animated.div style={props}>I will fade in</animated.div> */}
                 <div className="body">{pageDisplay()}</div>
                 <div className="footer">
                   <button
