@@ -21,13 +21,13 @@ const ProductInfo = ({ formData, setFormData }) => {
   return (
     <>
       <h1>{question.text}</h1>
-      <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center">
+      <div className="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center">
         {question.options.map((option, i) => {
           return (
             <>
-              <div class="col">
+              <div className="col">
                 <div
-                  class="card h-100"
+                  className="card h-100"
                   onClick={handleClick}
                   style={{
                     backgroundColor:
@@ -36,9 +36,9 @@ const ProductInfo = ({ formData, setFormData }) => {
                         : "white",
                   }}
                 >
-                  <img src={option.pic} class="card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">{option.text}</h5>
+                  <img src={option.pic} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">{option.text}</h5>
                   </div>
                 </div>
               </div>

@@ -5,7 +5,6 @@ import "./home.css";
 import { useSpring, animated, useTransition } from "react-spring";
 
 const Home = () => {
- 
   let navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
@@ -13,7 +12,6 @@ const Home = () => {
   }, []);
   return (
     <>
-    
       <div className="container-fluid appContainer">
         <div className="row">
           <div className="col-xl-3 col-md-1 col-xs-0"></div>
@@ -39,12 +37,10 @@ const Home = () => {
                 حذف نشدن اطلاعات وارد شده بعد از رفرش
               </li>
               <li className="list-group-item">قابلیت رفت و برگشت بین سوالات</li>
-              <li className="list-group-item">اعتبار سنجی پاسخ ها</li>
               <li className="list-group-item">
                 محافظت از روت ارسال اطلاعات به سمت سرور: در صورت تلاش کاربر ارور
                 مناسب نمایش داده می شود.
               </li>
-              <li className="list-group-item">انیمیشن برای انتقال بین صفحات</li>
             </ul>
             <div
               className="alert alert-secondary d-flex justify-content-center copyRight"
